@@ -20,7 +20,7 @@ public class Login extends HttpServlet {
         // auto generated method
     }
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
             String id = idOne.toString();
             Cookie loginCookie = new Cookie("user", id);
             loginCookie.setMaxAge(30 * 60);
-            res.addCookie(loginCookie);
+            resp.addCookie(loginCookie);
 
 			/* Generates CSRF token and tore in server side */
             HttpSession session = req.getSession();
@@ -49,10 +49,10 @@ public class Login extends HttpServlet {
 
             }
 
-            res.sendRedirect("form.jsp");
+            resp.sendRedirect("form.jsp");
 
         } else {
-            res.sendRedirect("error.jsp");
+            resp.sendRedirect("error.jsp");
         }
 
     }

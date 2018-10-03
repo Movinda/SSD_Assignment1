@@ -14,15 +14,16 @@ public class logout extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // auto generated method
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        response.setContentType("text/html");
+        resp.setContentType("text/html");
         Cookie loginCookie = null;
-        Cookie[] cookies = request.getCookies();
+        Cookie[] cookies = req.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("user")) {
@@ -33,12 +34,12 @@ public class logout extends HttpServlet {
         }
         if (loginCookie != null) {
             loginCookie.setMaxAge(0);
-            response.addCookie(loginCookie);
+            resp.addCookie(loginCookie);
         }
-        HttpSession session = request.getSession();
+        HttpSession session = req.getSession();
 
         session.setAttribute("csrfToken", null);
-        response.sendRedirect("login.jsp");
+        resp.sendRedirect("login.jsp");
 
     }
 }

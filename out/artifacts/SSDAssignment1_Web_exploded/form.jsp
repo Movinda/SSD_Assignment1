@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Form</title>
     <script>
         function myFunction() {
             var element1 = document.createElement("input");

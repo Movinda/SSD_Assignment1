@@ -11,6 +11,6 @@
     <title>Error</title>
 </head>
 <body>
-Login Credentials incorrect
+Login Credentials Incorrect
 </body>
 </html>
