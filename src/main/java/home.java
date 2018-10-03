@@ -14,25 +14,25 @@ public class home extends HttpServlet {
         super();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // auto generated method
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
+        HttpSession session = req.getSession();
         String storedToken = (String) session.getAttribute("csrfToken");
-        String token = request.getParameter("tokenval");
+        String token = req.getParameter("tokenval");
 
 		/* If the received CSRF token valid alert Sucess Message */
         if (storedToken.equals(token)) {
 
-            PrintWriter out = response.getWriter();
+            PrintWriter out = resp.getWriter();
             out.print("<script language='JavaScript'>alert('Success');</script>");
 
         } else {
 
-            PrintWriter out = response.getWriter();
+            PrintWriter out = resp.getWriter();
             out.print("<script language='JavaScript'>alert('Error');</script>");
         }
     }
