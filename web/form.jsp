@@ -54,7 +54,7 @@
 
     </table>
 </form>
-<form method="post" action="logOut" name="logOutform" id="logOutform">
+<form method="post" action="logout" name="logOutform" id="logOutform">
     <input type="submit" value="Logout">
 </form>
 </body>
